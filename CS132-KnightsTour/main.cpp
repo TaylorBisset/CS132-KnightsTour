@@ -18,14 +18,25 @@ char horLine = 196, verLine = 179, spaceDot = 250;
 
 void printBoard(int board[boardSize][boardSize])
 {
-    for (int row = 0; row < boardSize; row++)
+    for (int row = 0; row < boardSize; row++)       // row logic 
     {
-        for (int col = 0; col < boardSize; col++)
+        for (int row = 0; row <= ((boardSize + 1) * 5); row++)  // row horizontal line
         {
-            cout << spaceDot;
+            cout << horLine;
         }
         cout << endl;
+
+        for (int col = 0; col < boardSize; col++)   // column logic 
+        {
+            cout << verLine << "  " << spaceDot << "  ";
+        }
+        cout << verLine << endl;
     }
+    for (int row = 0; row <= ((boardSize + 1) * 5); row++)  // row horizontal line
+    {
+        cout << horLine;
+    }
+    cout << endl;
 }
 
 int main()
