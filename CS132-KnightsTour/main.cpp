@@ -6,6 +6,7 @@
                 so that a knight visits every location. 
 */
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
