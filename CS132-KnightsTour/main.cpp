@@ -2,7 +2,7 @@
  Author:        Taylor Bisset
  Section:       A
  Assignment:    Knights Tour
- Description:   Knight's Tour is a sequence of moves around a chessboard 
+ Description:   Knights Tour is a sequence of moves around a chessboard 
                 so that a knight visits every location. 
 */
 #include <iostream>
@@ -19,10 +19,12 @@ int startX = 0;
 int startY = 0;
 int currentPosX = 0;
 int currentPosY = 0;
+int tryNum = 1; 
 
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
 void printBoard(int board[boardSize][boardSize]); 
+bool knightMove(int board[boardSize][boardSize], int newX, int newY); 
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
 
@@ -56,4 +58,18 @@ void printBoard(int board[boardSize][boardSize])
         cout << horLine;
     }
     cout << endl;
+}
+
+bool knightMove(int board[boardSize][boardSize], int newX, int newY)
+{
+    /*
+    
+    ...move logic...
+    
+    */
+    if (newX < 0 || newY < 0 || newX > boardSize || newY > boardSize)
+    {
+        return false;
+    }
+    // else if ... find valid position that has not been visited. if it is a number, then invlad.
 }
