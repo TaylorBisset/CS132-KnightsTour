@@ -6,7 +6,6 @@
                 so that a knight visits every location. 
 */
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -15,6 +14,25 @@ const int boardSize = 5;
 
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
+
+int startX = 0;
+int startY = 0;
+int currentPosX = 0;
+int currentPosY = 0;
+
+/* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
+
+void printBoard(int board[boardSize][boardSize]); 
+
+/* - - - - - - - - - - MAIN - - - - - - - - - - */
+
+int main()
+{
+    int chessboard[boardSize][boardSize] = {spaceDot}; 
+    printBoard(chessboard);
+}
+
+/* - - - - - - - - - - FUNCTIONS - - - - - - - - - - */
 
 void printBoard(int board[boardSize][boardSize])
 {
@@ -38,12 +56,4 @@ void printBoard(int board[boardSize][boardSize])
         cout << horLine;
     }
     cout << endl;
-}
-
-int main()
-{
-    int startX = 0; 
-    int startY = 0; 
-    int chessboard[boardSize][boardSize] = {spaceDot}; 
-    printBoard(chessboard);
 }
