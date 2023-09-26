@@ -18,21 +18,22 @@ char horLine = 196, verLine = 179, spaceDot = 250;
 
 void printBoard(int board[boardSize][boardSize])
 {
-    for (int row = 0; row < boardSize; row++)       // row logic 
+    for (int row = 0; row < boardSize; row++)                   // row logic 
     {
-        for (int row = 0; row <= ((boardSize + 1) * 5); row++)  // row horizontal line
+        for (int row = 0; row < ((boardSize * 5) + 1); row++)   // row horizontal line
         {
             cout << horLine;
         }
         cout << endl;
 
-        for (int col = 0; col < boardSize; col++)   // column logic 
+        for (int col = 0; col < boardSize; col++)               // column logic     print "| xx "
         {
-            cout << verLine << "  " << spaceDot << "  ";
+            cout << verLine << "  " << spaceDot << " "; // to-do: if statement for single digit vs double digit
         }
-        cout << verLine << endl;
+        cout << verLine << endl;                                // print column vertical line   "|"
     }
-    for (int row = 0; row <= ((boardSize + 1) * 5); row++)  // row horizontal line
+
+    for (int row = 0; row < ((boardSize * 5) + 1); row++)       // ending row horizontal line
     {
         cout << horLine;
     }
@@ -41,6 +42,8 @@ void printBoard(int board[boardSize][boardSize])
 
 int main()
 {
-    int chessboard[boardSize][boardSize];
+    int startX = 0; 
+    int startY = 0; 
+    int chessboard[boardSize][boardSize] = {spaceDot}; 
     printBoard(chessboard);
 }
