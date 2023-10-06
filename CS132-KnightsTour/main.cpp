@@ -95,6 +95,17 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
     {
         return true;
     }
+
+    for (int move = 0; move < 8; move++)
+    {
+        newX += dx[move];
+        newY += dy[move];
+
+        if (knightMove(board, newX, newY) == true)
+        {
+            return true;
+        }
+    }
 }
 
 /*
