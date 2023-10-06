@@ -43,8 +43,6 @@ int main()
     {
         cout << "Knight's Tour was completed in " << tryNum << "steps.\n";
     }
-
-    printBoard(chessboard);
 }
 
 /* - - - - - - - - - - FUNCTIONS - - - - - - - - - - */
@@ -92,6 +90,12 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
 {
     board[newX][newY] += moveCount;
     tryNum++;
+
+    if (tryNum % 1000 == 0)
+    {
+        printBoard(board);
+        cout << endl << "Total tries; " << tryNum << endl;
+    }
 
     if (newX < 0 || newY < 0 || newX > boardSize || newY > boardSize)
     {
