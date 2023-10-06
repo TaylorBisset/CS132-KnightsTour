@@ -106,6 +106,9 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
             return true;
         }
     }
+
+    moveCount--;
+    return false;
 }
 
 /*
