@@ -16,12 +16,12 @@ const int boardSize = 5;
 char horLine = 196, verLine = 179, spaceDot = 250;
 
 int tryNum = 0;
-int moveCount = 0;
+int moveCount = 1;
 
 int startX = 0;
 int startY = 0;
-int currentPosX = 0;
-int currentPosY = 0;
+int currentX = 0;
+int currentY = 0;
 
 // move #:   1   2   3   4   5   6   7   8
 int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
@@ -37,6 +37,13 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY);
 int main()
 {
     int chessboard[boardSize][boardSize] = {0}; 
+    chessboard[startX][startY] = 1, 1;
+
+    if (knightMove(chessboard, currentX, currentY) == true)
+    {
+        cout << "Knight's Tour was completed in " << tryNum << "steps.\n";
+    }
+
     printBoard(chessboard);
 }
 
@@ -98,10 +105,10 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
 
     for (int move = 0; move < 8; move++)
     {
-        newX += dx[move];
-        newY += dy[move];
+        currentX = newX + dx[move];
+        currentY = newY + dy[move];
 
-        if (knightMove(board, newX, newY) == true)
+        if (knightMove(board, currentX, currentY) == true)
         {
             return true;
         }
