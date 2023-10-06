@@ -91,7 +91,7 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
     board[newX][newY] += moveCount;
     tryNum++;
 
-    if (tryNum % 1000 == 0)
+    if (tryNum % 100000 == 0)
     {
         printBoard(board);
         cout << endl << "Total tries; " << tryNum << endl;
