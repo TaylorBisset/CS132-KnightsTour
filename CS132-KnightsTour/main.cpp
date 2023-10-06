@@ -37,7 +37,7 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY);
 int main()
 {
     int chessboard[boardSize][boardSize] = {0}; 
-    chessboard[startX][startY] = 1, 1;
+    chessboard[startX][startY] = 1;
 
     if (knightMove(chessboard, currentX, currentY) == true)
     {
