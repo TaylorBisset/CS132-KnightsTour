@@ -50,22 +50,24 @@ void printBoard(int board[boardSize][boardSize])
         }
         cout << endl;
 
-        for (int col = 0; col < boardSize; col++)               // column logic     print "| xx "
+        for (int col = 0; col < boardSize; col++)               // column logic     print "| ## "
         {
-            cout << verLine << " ";
-            if (board.at(i) == 0)
+            cout << verLine << " ";                                 // print " " at start
+
+            if (board[row][col] == 0)                               // print " ."
             {
-                cout << "  " << spaceDot;
+                cout << " " << spaceDot;
             }
-            else if (board.at(i) > 0 && board.at(i) < 10)
+            else if (board[row][col] > 0 && board[row][col] < 10)   // print " #"
             {
-                cout << "  " << board.at(i);
+                cout << " " << board[row][col];
             }
-            else
+            else                                                    // print "##"
             {
-                out << " " << board.at(i);
+                cout << board[row][col];
             }
-            cout << " ";
+
+            cout << " ";                                            // print " " at end
         }
         cout << verLine << endl;                                // print column vertical line   "|"
     }
