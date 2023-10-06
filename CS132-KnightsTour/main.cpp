@@ -15,11 +15,31 @@ const int boardSize = 5;
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
 
+int tryNum = 1;
 int startX = 0;
 int startY = 0;
 int currentPosX = 0;
 int currentPosY = 0;
-int tryNum = 1; 
+
+// move #:   1   2   3   4   5   6   7   8
+int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
+int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
+
+/*
+
+??????????????????????????
+?    ?  8 ?    ?  1 ?    ?
+??????????????????????????
+?  7 ?    ?    ?    ?  2 ?
+??????????????????????????
+?    ?    ? Kn ?    ?    ?
+??????????????????????????
+?  6 ?    ?    ?    ?  3 ?
+??????????????????????????
+?    ?  4 ?    ?  4 ?    ?
+??????????????????????????
+
+*/
 
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
@@ -150,7 +170,8 @@ some of the tours on an 8x8 board can take a while....
 starting at location 4, 4 (when first row and col are 0) 
 the program ran over night and had tried 62,200,000,000 moves 
 and had a ways to go before solving it with this brute force algorithm). 
-The solution for a tour starting at 0,0 did not take that long; and only took 3,242,065 tries to find the solution.
+The solution for a tour starting at 0,0 did not take that long; 
+and only took 3,242,065 tries to find the solution.
 
 I solved the problem by using a function prototype like the following:
 
@@ -168,7 +189,10 @@ Paste this board as a comment below your program.
 Turn in your program file with the output copied from the output window as a comment below your program.    
 The file format for turning in files is pdf.     
 If you have a program that can easily convert your program file to pdf, do that 
-(One way to do that is within the print dialog box instead of selecting a printer you can often select Save as PDF ).       Last choice only if you can't convert to pdf:  Append the .txt extension to your .cpp files.    For example prog1.cpp would be prog1.cpp.txt
+(One way to do that is within the print dialog box instead of selecting a printer 
+you can often select Save as PDF ).       
+Last choice only if you can't convert to pdf:  Append the .txt extension to your .cpp files.    
+For example prog1.cpp would be prog1.cpp.txt
 
 Thank you
 
@@ -178,12 +202,15 @@ but for this program you can make the board and the number of tries as global va
 
 Ways to lose points:
 
-if your file does not contain the program header with a program description and short function descriptions to accompany the function prototypes(for functions used with main).
+if your file does not contain the program header with a program description 
+and short function descriptions to accompany the function prototypes (for functions used with main).
 your code should also be consistently indented as talked about in class, and shown in the book, and class
 you should use good variable names (descriptive, and start with lower case letter )
 proper placement of { and } ( a } should not be placed at the end of a line)
 no staple to keep your papers together (folding a corner or using a paper clip are not good enough)
-Comments: Comments are a way of documenting a program (explaining who did what and how). All programs for the rest of the course are required to have the following header documentation and inline documentation to explain any tricky pieces of code.
+Comments: Comments are a way of documenting a program (explaining who did what and how). 
+All programs for the rest of the course are required to have the following header documentation 
+and inline documentation to explain any tricky pieces of code.
 
 ////
 // Author:       Your Name
