@@ -97,7 +97,7 @@ bool knightMove(int board[boardSize][boardSize], int newX, int newY)
         cout << endl << "Total tries; " << tryNum << endl;
     }
 
-    if (newX < 0 || newY < 0 || newX > boardSize || newY > boardSize)
+    if (newX <= 0 || newY <= 0 || newX >= boardSize || newY >= boardSize)
     {
         return false;
     }
