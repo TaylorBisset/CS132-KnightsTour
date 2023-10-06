@@ -15,7 +15,9 @@ const int boardSize = 5;
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
 
-int tryNum = 1;
+int tryNum = 0;
+int moveCount = 0;
+
 int startX = 0;
 int startY = 0;
 int currentPosX = 0;
@@ -81,16 +83,18 @@ void printBoard(int board[boardSize][boardSize])
 
 bool knightMove(int board[boardSize][boardSize], int newX, int newY)
 {
-    /*
-    
-    ...move logic...
-    
-    */
+    board[newX][newY] += moveCount;
+    tryNum++;
+
     if (newX < 0 || newY < 0 || newX > boardSize || newY > boardSize)
     {
         return false;
     }
-    // else if ... find valid position that has not been visited. if it is a number, then invlad.
+    
+    if (moveCount == boardSize * boardSize)
+    {
+        return true;
+    }
 }
 
 /*
