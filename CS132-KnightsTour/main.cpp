@@ -112,6 +112,12 @@ void knightMove(int x, int y)
     {                           // increment through Knight moves
         int newX = x + dx[move];
         int newY = y + dy[move];
+
+        if (validMoveFound)
+        {
+            chessboard[newX][newY] = moveCount;
+            moveCount++;
+        }
     }
 }
 
