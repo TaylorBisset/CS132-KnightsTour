@@ -44,10 +44,31 @@ int main()
     if (moveCount >= boardSize * boardSize)
     {
         printBoard(chessboard);
-        cout << "Knight's Tour was completed in " << tryNum << " steps.\n";
+        cout << "Knight's Tour  on a " << boardSize << "x" << boardSize << " board,\n";
+        cout << "was completed in " << tryNum << " steps.\n";
     }
     return 0;
 }
+
+/*
+
+5x5 board size output:
+
+--------------------------
+|  1 | 10 | 15 | 24 | 25 |
+--------------------------
+|  6 | 23 |  2 |  9 | 14 |
+--------------------------
+| 11 | 20 |  7 | 16 |  3 |
+--------------------------
+| 22 |  5 | 18 | 13 |  8 |
+--------------------------
+| 19 | 12 | 21 |  4 | 17 |
+--------------------------
+Knight's Tour  on a 5x5 board,
+was completed in 1744 steps.
+
+*/
 
 /* - - - - - - - - - - FUNCTIONS - - - - - - - - - - */
 
