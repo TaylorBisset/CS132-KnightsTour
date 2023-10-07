@@ -23,6 +23,9 @@ int startY = 0;
 int currentX = 0;
 int currentY = 0;
 
+int chessboard[boardSize][boardSize] = { 0 };
+chessboard[startX][startY] = 1;
+
 // move #:   1   2   3   4   5   6   7   8
 int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
 int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
@@ -30,17 +33,16 @@ int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
 void printBoard(int board[boardSize][boardSize]); 
-bool knightMove(int board[boardSize][boardSize], int newX, int newY); 
+bool validMoveFound();
+void knightMove(int board[boardSize][boardSize], int newX, int newY); 
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
 
 int main()
 {
-    int chessboard[boardSize][boardSize] = {0}; 
-    chessboard[startX][startY] = 1;
-
-    if (knightMove(chessboard, currentX, currentY) == true)
+    if (moveCount == boardSize * boardSize && validMoveFound)
     {
+        printBoard(chessboard);
         cout << "Knight's Tour was completed in " << tryNum << "steps.\n";
     }
 }
@@ -86,41 +88,55 @@ void printBoard(int board[boardSize][boardSize])
     cout << endl;
 }
 
-bool knightMove(int board[boardSize][boardSize], int newX, int newY)
+bool validMoveFound()
 {
-    board[newX][newY] += moveCount;
-    tryNum++;
-
-    if (tryNum % 100000 == 0)
-    {
-        printBoard(board);
-        cout << endl << "Total tries; " << tryNum << endl;
-    }
-
-    if (newX <= 0 || newY <= 0 || newX >= boardSize || newY >= boardSize)
-    {
-        return false;
-    }
-    
-    if (moveCount == boardSize * boardSize)
+    if (chessboard[currentX] == 0 && currentX >= 0 && currentX < boardSize && 
+        chessboard[currentY] >= 0 && currentY >= 0 && currentY < boardSize)
     {
         return true;
     }
-
-    for (int move = 0; move < 8; move++)
-    {
-        currentX = newX + dx[move];
-        currentY = newY + dy[move];
-
-        if (knightMove(board, currentX, currentY) == true)
-        {
-            return true;
-        }
-    }
-
-    moveCount--;
-    return false;
 }
+
+void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
+{
+    tryNum++;
+    if (tryNum % 1000 == 0)
+    {
+        printBoard(board);
+        cout << endl << "Total tries: " << tryNum << endl;
+    }
+}
+
+//bool knightMove(int board[boardSize][boardSize], int newX, int newY)
+//{
+//    board[newX][newY] += moveCount;
+//    tryNum++;
+//
+//    if (tryNum % 1000 == 0)
+//    {
+//        printBoard(board);
+//        cout << endl << "Total tries; " << tryNum << endl;
+//    }
+//
+//    if (newX <= 0 || newY <= 0 || newX >= boardSize || newY >= boardSize)
+//    {
+//        return false;
+//    }
+//    
+//    if (moveCount == boardSize * boardSize)
+//    {
+//        return true;
+//    }
+//
+//    for (int move = 0; move < 8; move++)
+//    {
+//        currentX = newX + dx[move];
+//        currentY = newY + dy[move];
+//    }
+//
+//    moveCount--;
+//    return false;
+//}
 
 /*
 
