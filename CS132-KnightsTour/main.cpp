@@ -10,7 +10,7 @@
 using namespace std;
 
 // create board size
-const int boardSize = 5;    // increase to 8 for a standard 8x8 chessboard
+const int boardSize = 8;    // increase to 8 for a standard 8x8 chessboard
 
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
@@ -114,10 +114,21 @@ void printBoard(int board[boardSize][boardSize])
 void knightMove(int x, int y)
 {
     tryNum++;   // increment attempts
-    if (tryNum % 1000 == 0)
+    if (boardSize <= 5)
     {
-        printBoard(chessboard);
-        cout << endl << "Total tries; " << tryNum << endl << endl;
+        if (tryNum % 1'000 == 0)
+        {
+            printBoard(chessboard);
+            cout << endl << "Total tries; " << tryNum << endl << endl;
+        }
+    }
+    else
+    {
+        if (tryNum % 100'000 == 0)
+        {
+            printBoard(chessboard);
+            cout << endl << "Total tries; " << tryNum << endl << endl;
+        }
     }
 
     if (moveCount == boardSize * boardSize)
