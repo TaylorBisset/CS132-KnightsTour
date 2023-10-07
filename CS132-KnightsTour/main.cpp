@@ -47,6 +47,15 @@ int main()
         cout << "Knight's Tour  on a " << boardSize << "x" << boardSize << " board,\n";
         cout << "was completed in " << tryNum << " steps.\n";
     }
+#    // OS independent program termination sequence. 
+#ifdef _WIN32
+    cout << endl;
+    system("pause");
+#else
+    cout << endl;
+    cout << "Press any key to continue . . . ";
+    cin.get();
+#endif
     return 0;
 }
 
