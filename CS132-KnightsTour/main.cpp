@@ -24,7 +24,6 @@ int currentX = 0;
 int currentY = 0;
 
 int chessboard[boardSize][boardSize] = { 0 };
-chessboard[startX][startY] = 1;
 
 // move #:   1   2   3   4   5   6   7   8
 int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
@@ -43,7 +42,7 @@ int main()
     if (moveCount == boardSize * boardSize && validMoveFound)
     {
         printBoard(chessboard);
-        cout << "Knight's Tour was completed in " << tryNum << "steps.\n";
+        cout << "Knight's Tour was completed in " << tryNum << " steps.\n";
     }
 }
 
@@ -90,8 +89,9 @@ void printBoard(int board[boardSize][boardSize])
 
 bool validMoveFound()
 {
-    if (chessboard[currentX] == 0 && currentX >= 0 && currentX < boardSize && 
-        chessboard[currentY] >= 0 && currentY >= 0 && currentY < boardSize)
+    if (chessboard[currentX][currentY] == 0   && 
+        currentX >= 0 && currentX < boardSize && 
+        currentY >= 0 && currentY < boardSize)
     {
         return true;
     }
@@ -99,11 +99,18 @@ bool validMoveFound()
 
 void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
 {
+    int move;
     tryNum++;
     if (tryNum % 1000 == 0)
     {
         printBoard(board);
         cout << endl << "Total tries: " << tryNum << endl;
+    }
+
+    for (move = 0; move < 8; move++)
+    {
+        currentX += dx[move];
+        currentY += dy[move];
     }
 }
 
