@@ -108,6 +108,12 @@ bool validMoveFound()
 void knightMove(int x, int y)
 {
     tryNum++;   // increment attempts
+    if (tryNum % 1000 == 0)
+    {
+        printBoard(chessboard);
+        cout << endl << "Total tries; " << tryNum << endl;
+    }
+
     if (moveCount == boardSize * boardSize)
     {
         return; // end the tour if the Knight has visited every location on the board
@@ -118,18 +124,18 @@ void knightMove(int x, int y)
         int newX = x + dx[move];
         int newY = y + dy[move];
 
-        if (validMoveFound)
+        if (validMoveFound())
         {
             chessboard[newX][newY] = moveCount; // mark board and increment
             moveCount++;
-        }
 
-        knightMove(newX, newY);     // recursion
+            knightMove(newX, newY);     // recursion
 
-        if (moveCount < boardSize * boardSize)  // backstep
-        {
-            chessboard[newX][newY] = 0; // mark board and decrememnt
-            moveCount--;
+            if (moveCount < boardSize * boardSize)  // backstep
+            {
+                chessboard[newX][newY] = 0; // mark board and decrememnt
+                moveCount--;
+            }
         }
     }
 }
