@@ -20,8 +20,6 @@ int moveCount = 1;
 
 int startX = 0;
 int startY = 0;
-int currentX = 0;
-int currentY = 0;
 
 int chessboard[boardSize][boardSize] = { 0 };
 
@@ -32,7 +30,6 @@ int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
 void printBoard(int board[boardSize][boardSize]); 
-bool validMoveFound();
 void knightMove(int x, int y);
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
@@ -43,11 +40,12 @@ int main()
 
     knightMove(startX, startY);
 
-    if (moveCount == boardSize * boardSize && validMoveFound)
+    if (moveCount >= boardSize * boardSize)
     {
         printBoard(chessboard);
         cout << "Knight's Tour was completed in " << tryNum << " steps.\n";
     }
+    return 0;
 }
 
 /* - - - - - - - - - - FUNCTIONS - - - - - - - - - - */
@@ -91,20 +89,6 @@ void printBoard(int board[boardSize][boardSize])
     cout << endl;
 }
 
-bool validMoveFound()
-{
-    if (chessboard[currentX][currentY] == 0   && 
-        currentX >= 0 && currentX < boardSize && 
-        currentY >= 0 && currentY < boardSize)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 void knightMove(int x, int y)
 {
     tryNum++;   // increment attempts
@@ -124,7 +108,9 @@ void knightMove(int x, int y)
         int newX = x + dx[move];
         int newY = y + dy[move];
 
-        if (validMoveFound())
+        if (chessboard[newX][newY] == 0   &&
+            newX >= 0 && newX < boardSize &&
+            newY >= 0 && newY < boardSize)
         {
             chessboard[newX][newY] = moveCount; // mark board and increment
             moveCount++;
@@ -133,14 +119,14 @@ void knightMove(int x, int y)
 
             if (moveCount < boardSize * boardSize)  // backstep
             {
-                chessboard[newX][newY] = 0; // mark board and decrememnt
+                chessboard[newX][newY] = 0; // mark board and decrement
                 moveCount--;
             }
         }
     }
 }
 
-//void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
+//void knightMove(int board[boardSize][boardSize], int newX, int newY)
 //{
 //    int move;
 //    tryNum++;
@@ -152,8 +138,8 @@ void knightMove(int x, int y)
 //
 //    for (move = 0; move < 8; move++)
 //    {
-//        currentX += dx[move];
-//        currentY += dy[move];
+//        newX += dx[move];
+//        newY += dy[move];
 //    }
 //}
 
@@ -181,8 +167,8 @@ void knightMove(int x, int y)
 //
 //    for (int move = 0; move < 8; move++)
 //    {
-//        currentX = newX + dx[move];
-//        currentY = newY + dy[move];
+//        newX = newX + dx[move];
+//        newY = newY + dy[move];
 //    }
 //
 //    moveCount--;
