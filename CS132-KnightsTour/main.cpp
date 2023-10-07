@@ -102,10 +102,16 @@ bool validMoveFound()
 
 void knightMove(int x, int y)
 {
-    tryNum++;   // Increment attempts
+    tryNum++;   // increment attempts
     if (moveCount == boardSize * boardSize)
     {
-        return; // End the tour if the Knight has visited every location on the board
+        return; // end the tour if the Knight has visited every location on the board
+    }
+
+    for (int move = 0; move < 8; move++)
+    {                           // increment through Knight moves
+        int newX = x + dx[move];
+        int newY = y + dy[move];
     }
 }
 
