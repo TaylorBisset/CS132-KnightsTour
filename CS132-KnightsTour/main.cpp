@@ -95,6 +95,10 @@ bool validMoveFound()
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
 
 void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
