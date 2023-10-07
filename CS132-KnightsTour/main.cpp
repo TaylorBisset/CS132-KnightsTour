@@ -33,7 +33,6 @@ int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 
 void printBoard(int board[boardSize][boardSize]); 
 bool validMoveFound();
-void knightMove(int board[boardSize][boardSize], int newX, int newY); 
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
 
@@ -101,23 +100,26 @@ bool validMoveFound()
     }
 }
 
-void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
-{
-    int move;
-    tryNum++;
-    if (tryNum % 1000 == 0)
-    {
-        printBoard(board);
-        cout << endl << "Total tries: " << tryNum << endl;
-    }
 
-    for (move = 0; move < 8; move++)
-    {
-        currentX += dx[move];
-        currentY += dy[move];
-    }
-}
 
+//void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
+//{
+//    int move;
+//    tryNum++;
+//    if (tryNum % 1000 == 0)
+//    {
+//        printBoard(board);
+//        cout << endl << "Total tries: " << tryNum << endl;
+//    }
+//
+//    for (move = 0; move < 8; move++)
+//    {
+//        currentX += dx[move];
+//        currentY += dy[move];
+//    }
+//}
+
+// transition this to void
 //bool knightMove(int board[boardSize][boardSize], int newX, int newY)
 //{
 //    board[newX][newY] += moveCount;
