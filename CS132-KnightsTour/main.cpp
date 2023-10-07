@@ -80,14 +80,14 @@ void printBoard(int board[boardSize][boardSize])
 
             cout << " ";                                            // print " " at end
         }
-        cout << verLine << endl << endl;                                // print column vertical line   "|"
+        cout << verLine << endl;                                // print column vertical line   "|"
     }
 
     for (int row = 0; row < ((boardSize * 5) + 1); row++)       // ending row horizontal line
     {
         cout << horLine;
     }
-    cout << endl;
+    cout << endl << endl;
 }
 
 void knightMove(int x, int y)
