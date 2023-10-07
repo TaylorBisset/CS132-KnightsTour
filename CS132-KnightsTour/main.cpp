@@ -118,6 +118,8 @@ void knightMove(int x, int y)
             chessboard[newX][newY] = moveCount;
             moveCount++;
         }
+
+        knightMove(newX, newY);
     }
 }
 
