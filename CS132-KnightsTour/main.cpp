@@ -115,11 +115,17 @@ void knightMove(int x, int y)
 
         if (validMoveFound)
         {
-            chessboard[newX][newY] = moveCount;
+            chessboard[newX][newY] = moveCount; // mark board and increment
             moveCount++;
         }
 
-        knightMove(newX, newY);
+        knightMove(newX, newY);     // recursion
+
+        if (moveCount < boardSize * boardSize)  // backstep
+        {
+            chessboard[newX][newY] = 0; // mark board and decrememnt
+            moveCount--;
+        }
     }
 }
 
