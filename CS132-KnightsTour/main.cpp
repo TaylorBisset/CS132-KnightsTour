@@ -10,7 +10,7 @@
 using namespace std;
 
 // create board size
-const int boardSize = 5; 
+const int boardSize = 5;    // increase to 8 for a standard 8x8 chessboard
 
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
@@ -100,7 +100,14 @@ bool validMoveFound()
     }
 }
 
-
+void knightMove(int x, int y)
+{
+    tryNum++;   // Increment attempts
+    if (moveCount == boardSize * boardSize)
+    {
+        return; // End the tour if the Knight has visited every location on the board
+    }
+}
 
 //void knightMove(int board[boardSize][boardSize], int currentX, int currentY)
 //{
