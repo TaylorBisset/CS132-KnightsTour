@@ -4,6 +4,10 @@
  Assignment:    Knights Tour
  Description:   Knights Tour is a sequence of moves around a chessboard 
                 so that a knight visits every location. 
+                This program uses recursion and nested if statements 
+                in order to locate valid new moves, or backtrack to find
+                valid moves.
+                Output is sent to the console window.
 */
 #include <iostream>
 
