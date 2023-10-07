@@ -37,6 +37,7 @@ void knightMove(int x, int y);
 int main()
 {
     chessboard[startX][startY] = moveCount;
+    moveCount++;
 
     knightMove(startX, startY);
 
