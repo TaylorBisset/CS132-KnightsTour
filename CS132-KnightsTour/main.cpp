@@ -87,7 +87,7 @@ void printBoard(int board[boardSize][boardSize])
     {
         cout << horLine;
     }
-    cout << endl << endl;
+    cout << endl;
 }
 
 void knightMove(int x, int y)
@@ -96,7 +96,7 @@ void knightMove(int x, int y)
     if (tryNum % 1000 == 0)
     {
         printBoard(chessboard);
-        cout << endl << "Total tries; " << tryNum << endl;
+        cout << endl << "Total tries; " << tryNum << endl << endl;
     }
 
     if (moveCount == boardSize * boardSize)
