@@ -126,55 +126,6 @@ void knightMove(int x, int y)
     }
 }
 
-//void knightMove(int board[boardSize][boardSize], int newX, int newY)
-//{
-//    int move;
-//    tryNum++;
-//    if (tryNum % 1000 == 0)
-//    {
-//        printBoard(board);
-//        cout << endl << "Total tries: " << tryNum << endl;
-//    }
-//
-//    for (move = 0; move < 8; move++)
-//    {
-//        newX += dx[move];
-//        newY += dy[move];
-//    }
-//}
-
-// transition this to void
-//bool knightMove(int board[boardSize][boardSize], int newX, int newY)
-//{
-//    board[newX][newY] += moveCount;
-//    tryNum++;
-//
-//    if (tryNum % 1000 == 0)
-//    {
-//        printBoard(board);
-//        cout << endl << "Total tries; " << tryNum << endl;
-//    }
-//
-//    if (newX <= 0 || newY <= 0 || newX >= boardSize || newY >= boardSize)
-//    {
-//        return false;
-//    }
-//    
-//    if (moveCount == boardSize * boardSize)
-//    {
-//        return true;
-//    }
-//
-//    for (int move = 0; move < 8; move++)
-//    {
-//        newX = newX + dx[move];
-//        newY = newY + dy[move];
-//    }
-//
-//    moveCount--;
-//    return false;
-//}
-
 /*
 
 Assignment Details:
