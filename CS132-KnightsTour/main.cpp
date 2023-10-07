@@ -33,11 +33,16 @@ int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 
 void printBoard(int board[boardSize][boardSize]); 
 bool validMoveFound();
+void knightMove(int x, int y);
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
 
 int main()
 {
+    chessboard[startX][startY] = moveCount;
+
+    knightMove(startX, startY);
+
     if (moveCount == boardSize * boardSize && validMoveFound)
     {
         printBoard(chessboard);
