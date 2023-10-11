@@ -14,7 +14,7 @@
 using namespace std;
 
 // create board size
-const int boardSize = 8;    // increase to 8 for a standard 8x8 chessboard
+const int BOARD_SIZE = 8;    // increase to 8 for a standard 8x8 chessboard
 
 // set characters used in printing the board 
 char horLine = 196, verLine = 179, spaceDot = 250;
@@ -25,7 +25,7 @@ int moveCount = 1;
 int startX = 0;
 int startY = 0;
 
-int chessboard[boardSize][boardSize] = { 0 };
+int chessboard[BOARD_SIZE][BOARD_SIZE] = { 0 };
 
 // move #:   1   2   3   4   5   6   7   8
 int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
@@ -33,7 +33,7 @@ int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
-void printBoard(int board[boardSize][boardSize]); 
+void printBoard(int board[BOARD_SIZE][BOARD_SIZE]); 
 void knightMove(int x, int y);
 
 /* - - - - - - - - - - MAIN - - - - - - - - - - */
@@ -45,10 +45,10 @@ int main()
 
     knightMove(startX, startY);
 
-    if (moveCount >= boardSize * boardSize)
+    if (moveCount >= BOARD_SIZE * BOARD_SIZE)
     {
         printBoard(chessboard);
-        cout << "Knight's Tour  on a " << boardSize << "x" << boardSize << " board,\n";
+        cout << "Knight's Tour  on a " << BOARD_SIZE << "x" << BOARD_SIZE << " board,\n";
         cout << "was completed in " << tryNum << " steps.\n";
     }
 #    // OS independent program termination sequence. 
@@ -109,17 +109,17 @@ was completed in 2392241 steps.
 
 /* - - - - - - - - - - FUNCTIONS - - - - - - - - - - */
 
-void printBoard(int board[boardSize][boardSize])
+void printBoard(int board[BOARD_SIZE][BOARD_SIZE])
 {
-    for (int row = 0; row < boardSize; row++)                   // row logic 
+    for (int row = 0; row < BOARD_SIZE; row++)                   // row logic 
     {
-        for (int row = 0; row < ((boardSize * 5) + 1); row++)   // row horizontal line
+        for (int row = 0; row < ((BOARD_SIZE * 5) + 1); row++)   // row horizontal line
         {
             cout << horLine;
         }
         cout << endl;
 
-        for (int col = 0; col < boardSize; col++)               // column logic     print "| ## "
+        for (int col = 0; col < BOARD_SIZE; col++)               // column logic     print "| ## "
         {
             cout << verLine << " ";                                 // print " " at start
 
@@ -141,7 +141,7 @@ void printBoard(int board[boardSize][boardSize])
         cout << verLine << endl;                                // print column vertical line   "|"
     }
 
-    for (int row = 0; row < ((boardSize * 5) + 1); row++)       // ending row horizontal line
+    for (int row = 0; row < ((BOARD_SIZE * 5) + 1); row++)       // ending row horizontal line
     {
         cout << horLine;
     }
@@ -151,7 +151,7 @@ void printBoard(int board[boardSize][boardSize])
 void knightMove(int x, int y)
 {
     tryNum++;   // increment attempts
-    if (boardSize <= 5)
+    if (BOARD_SIZE <= 5)
     {
         if (tryNum % 1'000 == 0)
         {
@@ -168,7 +168,7 @@ void knightMove(int x, int y)
         }
     }
 
-    if (moveCount == boardSize * boardSize)
+    if (moveCount == BOARD_SIZE * BOARD_SIZE)
     {
         return; // end the tour if the Knight has visited every location on the board
     }
@@ -179,15 +179,15 @@ void knightMove(int x, int y)
         int newY = y + dy[move];
 
         if (chessboard[newX][newY] == 0   &&
-            newX >= 0 && newX < boardSize &&
-            newY >= 0 && newY < boardSize)
+            newX >= 0 && newX < BOARD_SIZE &&
+            newY >= 0 && newY < BOARD_SIZE)
         {
             chessboard[newX][newY] = moveCount; // mark board and increment
             moveCount++;
 
             knightMove(newX, newY);     // recursion
 
-            if (moveCount < boardSize * boardSize)  // backstep
+            if (moveCount < BOARD_SIZE * BOARD_SIZE)  // backstep
             {
                 chessboard[newX][newY] = 0; // mark board and decrement
                 moveCount--;
