@@ -31,6 +31,20 @@ int chessboard[BOARD_SIZE][BOARD_SIZE] = { 0 };
 int dx[] = { 1,  2,  2,  1, -1, -2, -2, -1};
 int dy[] = { 2,  1, -1, -2, -2, -1,  1,  2};
 
+/*
+--------------------------
+|    |  8 |    |  1 |    |
+--------------------------
+|  7 |    |    |    |  2 |
+--------------------------
+|    |    | Kn |    |    |
+--------------------------
+|  6 |    |    |    |  3 |
+--------------------------
+|    |  5 |    |  4 |    |
+--------------------------
+*/
+
 /* - - - - - - - - - - PROTOTYPES - - - - - - - - - - */ 
 
 void printBoard(int board[BOARD_SIZE][BOARD_SIZE]); 
@@ -78,7 +92,7 @@ int main()
 --------------------------
 | 19 | 12 | 21 |  4 | 17 |
 --------------------------
-Knight's Tour  on a 5x5 board,
+Knight's Tour on a 5x5 board,
 was completed in 1744 steps.
 
 */
@@ -102,7 +116,7 @@ was completed in 1744 steps.
 -----------------------------------------
 | 64 | 17 |  8 | 29 | 20 | 15 |  6 | 13 |
 -----------------------------------------
-Knight's Tour  on a 8x8 board,
+Knight's Tour on a 8x8 board,
 was completed in 2392241 steps.
 
 */
@@ -141,7 +155,7 @@ void printBoard(int board[BOARD_SIZE][BOARD_SIZE])
         cout << verLine << endl;                                // print column vertical line   "|"
     }
 
-    for (int row = 0; row < ((BOARD_SIZE * 5) + 1); row++)       // ending row horizontal line
+    for (int row = 0; row < ((BOARD_SIZE * 5) + 1); row++)      // ending row horizontal line
     {
         cout << horLine;
     }
@@ -178,9 +192,9 @@ void knightMove(int x, int y)
         int newX = x + dx[move];
         int newY = y + dy[move];
 
-        if (chessboard[newX][newY] == 0   &&
-            newX >= 0 && newX < BOARD_SIZE &&
-            newY >= 0 && newY < BOARD_SIZE)
+        if (newX >= 0 && newX < BOARD_SIZE &&
+            newY >= 0 && newY < BOARD_SIZE &&
+            chessboard[newX][newY] == 0)
         {
             chessboard[newX][newY] = moveCount; // mark board and increment
             moveCount++;
